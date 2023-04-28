@@ -1,6 +1,11 @@
-.correct {
-    color: green;
-  }
-  .remaining {
-    color: black;
-  }
+#phrase {
+  color: #999; /* grey out the text */
+}
+
+#phrase .correct {
+  color: #000; /* make correct letters darker */
+}
+
+.remaining {
+  color: #ccc;
+}

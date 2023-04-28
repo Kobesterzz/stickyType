@@ -6,17 +6,31 @@ document.getElementById("textInput").addEventListener("input", function(event) {
   const lastTypedCharacter = userInput[userInput.length - 1];
 
   if (lastTypedCharacter === phrase[currentIndex]) {
-    // correct character was typed, move to the next one
+    // correct character was typed, move to the next one and update the displayed phrase
     currentIndex++;
     event.target.value = ""; // clear the input field
-    displayPhrase(); // update the phrase with correct and remaining characters highlighted
+    updatePhraseDisplay(); // update the phrase with correct and remaining characters highlighted
   } else {
     // incorrect character was typed, do nothing for now
   }
 });
 
-function displayPhrase() {
+function updatePhraseDisplay() {
+  const phraseEl = document.getElementById("phrase");
   const correctSpan = `<span class="correct">${phrase.slice(0, currentIndex)}</span>`;
   const remainingSpan = `<span class="remaining">${phrase.slice(currentIndex)}</span>`;
-  document.getElementById("phrase").innerHTML = correctSpan + remainingSpan;
+  phraseEl.innerHTML = correctSpan + remainingSpan;
+
+  // make correct letters darker
+  const correctLetters = phraseEl.querySelectorAll(".correct");
+  correctLetters.forEach((letterEl) => {
+    letterEl.classList.add("correct");
+  });
+
+  // gray out remaining letters
+  const remainingLetters = phraseEl.querySelectorAll(".remaining");
+  remainingLetters.forEach((letterEl) => {
+    letterEl.classList.add("remaining");
+  });
 }
+
