@@ -1,11 +1,27 @@
-#phrase {
-  color: #999; /* grey out the text */
+html{
+  background-color: beige;
 }
 
-#phrase .correct {
-  color: #000; /* make correct letters darker */
+.homePage-quotes{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ font-family: SF pro;
+ letter-spacing: 10px;
 }
 
-.remaining {
-  color: #ccc;
+.Difficultys{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+}
+
+.Difficulty-Buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  row-gap: 30px;
 }

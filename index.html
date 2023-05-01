@@ -5,12 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesSheet" href="./styles.css">
+    <link rel="styleSheet" href="./styles.css">
     <script src="./script.js"></script>
 </head>
 <body>
-    <p>Type the following phrase:</p>
-    <p id="phrase">This is a test phrase.</p>
-    <input type="text" id="textInput" autofocus>
+    <div class="homePage-quotes">
+        <h1>STICKY TYPE</h1>
+        <span class="auto-type"></span>
+    </div>
+
+    <div class="Difficultys">
+        <h1>Choose Your Difficulty</h1>
+        <div class="Difficulty-Buttons">
+            <button>Easy</button>
+            <button>Normal</button>
+            <button>Difficult</button>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+    var typed = new Typed(".auto-type",{
+        strings:["Enhance Your Typing Speed"],
+        typeSpeed:150,
+        })
+    </script>
 </body>
 </html>
+
