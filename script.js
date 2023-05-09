@@ -24,8 +24,16 @@ function setText(difficulty){
     }else if (difficulty === "hard"){
         text = 'This is an hard text to type.'
     }
-    document.getElementById("text-container").textContent = text;
+    /*document.getElementById("text-container").textContent = text;*/
 
     localStorage.setItem("text", text); // save text to local storage
     window.location.href = "TypeingPage.html"; // redirect to typing page
 }
+
+// Add event listener to all keys
+document.querySelectorAll('.key').forEach(key => {
+    key.addEventListener('click', () => {
+      const keyVal = key.getAttribute('data-key');
+      console.log(keyVal); // Replace with your desired function
+    });
+  });
