@@ -10,6 +10,12 @@ a{
  text-decoration: none;
 }
 
+.logo{
+  color: #111;
+  font-family: ND LOGOS;
+  font-size: 25px;
+}
+
 .homePage-quotes{
  display: flex;
  justify-content: center;

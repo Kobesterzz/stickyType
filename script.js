@@ -1,7 +1,5 @@
 /*difficulty buttons*/
 
-
-
 document.getElementById("easy-btn").addEventListener('click', function(){
     setText("easy");
 });
@@ -24,16 +22,24 @@ function setText(difficulty){
     }else if (difficulty === "hard"){
         text = 'This is an hard text to type.'
     }
-    /*document.getElementById("text-container").textContent = text;*/
-
     localStorage.setItem("text", text); // save text to local storage
     window.location.href = "TypeingPage.html"; // redirect to typing page
 }
 
-// Add event listener to all keys
-document.querySelectorAll('.key').forEach(key => {
-    key.addEventListener('click', () => {
-      const keyVal = key.getAttribute('data-key');
-      console.log(keyVal); // Replace with your desired function
+// Define the button element
+const easyBtn = document.getElementById('easy-btn');
+
+// Attach a click event listener to the button
+easyBtn.addEventListener('click', () => {
+  // Load the JSON file using a Fetch API
+  fetch('easy.json')
+    .then(response => response.json())
+    .then(data => {
+      // Choose a random phrase from the loaded JSON data
+      const randomPhrase = data[Math.floor(Math.random() * data.length)].phrase;
+      
+      // Display the chosen phrase on the typing screen
+      const typingScreen = document.getElementById('typing-screen');
+      typingScreen.textContent = randomPhrase;
     });
-  });
+});
