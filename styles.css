@@ -31,7 +31,7 @@ a{
   justify-content:center;
   align-items:center;
   flex-direction: column;
-  margin-top:90px;
+  margin-top:50px;
   font-family: SF pro;
 }
 
@@ -48,7 +48,7 @@ a{
 /* Button1*/
 .Difficulty-Button1 {
   align-items: center;
-  background-color: #e4c8aa;
+  background-color: #e4c8aad4;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -107,7 +107,7 @@ a{
 /* Button2 */
 .Difficulty-Button2 {
   align-items: center;
-  background-color: #e4c8aa;
+  background-color: #e4c8aad4;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -166,7 +166,7 @@ a{
 /* Button3*/
 .Difficulty-Button3 {
   align-items: center;
-  background-color: #e4c8aa;
+  background-color: #e4c8aad4;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;

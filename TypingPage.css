@@ -10,10 +10,68 @@ a{
   text-decoration: none;
 }
 
+.header{
+  display:flex;
+  align-items:stretch;
+  justify-content:space-between;
+}
+
 .logo{
   color: #111;
   font-family: ND LOGOS;
   font-size: 25px;
+}
+
+.Difficultys{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  margin-top:50px;
+  font-family: SF pro;
+}
+
+.Difficulty-Buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: row;
+  column-gap: 20px;
+  
+
+}
+
+.Difficulty-Button1{
+  background-color: #e4c8aad4;
+  border: 1px solid #111;
+}
+
+.Difficulty-Button1:hover{
+  transition: 200ms;
+  background-color: #00000075;
+  color: white;
+}
+
+.Difficulty-Button2{
+  background-color: #e4c8aad4;
+  border: 1px solid #111;
+}
+
+.Difficulty-Button2:hover{
+  transition: 200ms;
+  background-color: #00000075;
+  color: white;
+}
+
+.Difficulty-Button3{
+  background-color: #e4c8aad4;
+  border: 1px solid #111;
+}
+
+.Difficulty-Button3:hover{
+  transition: 200ms;
+  background-color: #00000075;
+  color: white;
 }
 
 .text-container{
@@ -43,7 +101,6 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .row {
@@ -55,8 +112,8 @@ a{
   margin: 5px;
   padding: 10px;
   font-size: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+  background-color: #f5f5f58e;
+  border: 1px solid #000000;
   border-radius: 5px;
   cursor: pointer;
 }
