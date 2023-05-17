@@ -20,18 +20,4 @@ function setText(difficulty){
     window.location.href = "TypeingPage.html"; // redirect to typing page
 }
 
-// Define the button element
-const easyBtn = document.getElementById('easy-btn');
 
-function loadEasyPhrase() {
-    fetch('./easy.json')
-      .then(response => response.json())
-      .then(data => {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        const phrase = data[randomIndex].phrase;
-        document.getElementById('text-container').innerHTML = phrase;
-      })
-      .catch(error => console.error(error));
-  }
-
-easyBtn.addEventListener('click', loadEasyPhrase);
