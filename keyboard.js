@@ -23,3 +23,46 @@ document.querySelectorAll('.key').forEach(key => {
 });
 
 
+// Define the button element
+//easy button
+const easyBtn = document.getElementById('easy-btn');
+function loadEasyPhrase() {
+    fetch('./easy.json')
+      .then(response => response.json())
+      .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const phrase = data[randomIndex].phrase;
+        document.getElementById('NeedToType').innerHTML = phrase;
+      })
+      .catch(error => console.error(error));
+  }
+easyBtn.addEventListener('click', loadEasyPhrase);
+
+
+//medium button
+const mediumBtn = document.getElementById('medium-btn');
+function loadMediumPhrase() {
+    fetch('./medium.json')
+      .then(response => response.json())
+      .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const phrase = data[randomIndex].phrase;
+        document.getElementById('NeedToType').innerHTML = phrase;
+      })
+      .catch(error => console.error(error));
+  }
+mediumBtn.addEventListener('click', loadMediumPhrase);
+
+//hard button
+const hardBtn = document.getElementById('hard-btn');
+function loadHardPhrase() {
+    fetch('./hard.json')
+      .then(response => response.json())
+      .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const phrase = data[randomIndex].phrase;
+        document.getElementById('NeedToType').innerHTML = phrase;
+      })
+      .catch(error => console.error(error));
+  }
+hardBtn.addEventListener('click', loadHardPhrase);
