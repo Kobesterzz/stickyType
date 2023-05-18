@@ -5,13 +5,7 @@ document.getElementById("easy-btn").addEventListener('click', function(){
     setText("easy");
 });
 
-document.getElementById("medium-btn").addEventListener('click', function(){
-    setText("medium");
-});
 
-document.getElementById("hard-btn").addEventListener('click', function(){
-    setText("hard");
-});
 
 function setText(difficulty){
     console.log("setText() called with difficulty: " + difficulty)
