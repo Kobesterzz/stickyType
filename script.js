@@ -1,7 +1,7 @@
 /*difficulty buttons*/
 /*difficulty buttons*/
 
-document.getElementById("easy-btn").addEventListener('click', function(){
+document.getElementById("start-btn").addEventListener('click', function(){
     setText("easy");
 });
 
