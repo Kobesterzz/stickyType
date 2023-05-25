@@ -89,6 +89,14 @@ a{
   color: white;
 }
 
+.input{
+  background-color: #0000000c;
+  border: #0000002a;
+  width:600px;
+  height:130px;
+  margin-top:80px;
+}
+
 .text-container{
   height:300px;
   display:flex;
@@ -101,9 +109,10 @@ a{
   height:300px;
   width:700px;
   display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(rgba(128, 128, 128, 0.783),rgba(255, 255, 255, 0.304));
+  background-image: linear-gradient(rgba(128, 128, 128, 0.829),rgba(255, 255, 255, 0.304));
 }
 
 .keyboard-box{
