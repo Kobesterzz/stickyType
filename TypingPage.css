@@ -97,6 +97,11 @@ a{
   margin-top:80px;
 }
 
+.NeedToType{
+  font-family: SF pro;
+  font-size: 15px;
+}
+
 .text-container{
   height:300px;
   display:flex;
