@@ -31,6 +31,11 @@ a{
   justify-content:space-between;
 }
 
+.instruction{
+  font-family: Sf pro;
+  font-size:25px;
+}
+
 .logo{
   color: #111;
   font-family: ND LOGOS;
@@ -89,36 +94,55 @@ a{
   color: white;
 }
 
-.input{
-  background-color: #0000000c;
-  border: #0000002a;
-  width:600px;
-  height:130px;
-  margin-top:80px;
+.text-container {
+  display: flex;
+  justify-content: center;
 }
 
-.NeedToType{
+.text-box {
+  position: relative;
+}
+
+.NeedToType {
+  opacity: 0.7;
   font-family: SF pro;
-  font-size: 15px;
+  font-size: 20px;
+  margin-top: 200px;
+  margin-bottom: 50px;
 }
 
-.text-container{
-  height:300px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+.horizontal-line {
+  border-top: 1px solid black;
+  margin: 10px 0; /* Adjust margin as desired */
+  width:1000px;
 }
 
-.text-box{
-  border: 2px solid black;
-  height:300px;
-  width:700px;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(rgba(128, 128, 128, 0.829),rgba(255, 255, 255, 0.304));
+#typeBox {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 200px;
+
 }
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 980px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.512);
+  outline: none;
+  background-color: transparent;
+  word-wrap: break-word;
+  font-size: 16px;
+  padding: 10px;
+  z-index: 2;
+}
+
+.input:focus {
+  border-color: rgb(0, 0, 0);
+}
+
 
 .keyboard-box{
   display:flex;
@@ -166,4 +190,20 @@ a{
   background-color: gray;
   box-shadow: none;
   color: white;
+}
+
+.error {
+  background-color: red;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

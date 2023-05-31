@@ -66,3 +66,17 @@ function loadHardPhrase() {
       .catch(error => console.error(error));
   }
 hardBtn.addEventListener('click', loadHardPhrase);
+
+// Get the input element and cursor element
+const inputBox = document.getElementById('inputBox');
+
+// Add event listener to input field
+inputBox.addEventListener('input', function() {
+  // Get the text content of the input field
+  const text = inputBox.value;
+});
+
+// Set focus on the input box on page load
+window.addEventListener('load', function() {
+  inputBox.focus();
+});
