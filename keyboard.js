@@ -80,3 +80,46 @@ inputBox.addEventListener('input', function() {
 window.addEventListener('load', function() {
   inputBox.focus();
 });
+
+//code for the  timer
+var timerInterval;
+var startTime
+var timerElement = document.getElementById('timer');
+
+//function to start the timer
+function startTimer() {
+  startTime = Date.now();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+// Function to pause the timer
+function pauseTimer() {
+  clearInterval(timerInterval); // clear the interval to pause the timer
+}
+
+//function to update the timer
+function updateTimer() {
+  // calculate elapsed time in seconds
+  var elapsedTime = Math.floor((Date.now() - startTime) / 1000)
+
+  // Format the time in MM:SS format
+  var minutes = Math.floor(elapsedTime / 60);
+  var seconds = elapsedTime % 60;
+  var formattedTime = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+
+  //updates display timer
+  timerElement.textContent = formattedTime;
+}
+
+// Event listener for keydown event on the input element
+inputBox.addEventListener('keydown', function(){
+  if(!timerInterval){
+    startTimer();
+  }
+
+  //Check if the Enter key was pressed (key code 13)
+if (event.keyCode === 13){
+  pauseTimer();
+}
+});
+
