@@ -123,3 +123,32 @@ if (event.keyCode === 13){
 }
 });
 
+
+var inputElement = document.getElementById('inputBox');
+
+// Event listener for input event on the input element
+inputElement.addEventListener('input', function(event) {
+  var typedText = inputElement.value.trim(); // Get the current typed text
+  var expectedText = getExpectedTextFromScreen().trim(); // Retrieve the expected text from the screen
+
+  var correctText = expectedText.slice(0, typedText.length); // Extract the corresponding part of the expected text
+
+  if (typedText !== correctText) {
+    inputElement.classList.add('incorrect'); // Add a CSS class to indicate incorrect input
+  } else {
+    inputElement.classList.remove('incorrect'); // Remove the CSS class if the input is correct
+
+    // Check if the typed text matches the full expected text
+    if (typedText === expectedText) {
+      // Handle the completion of the expected text
+    }
+  }
+});
+
+// Function to retrieve the expected text from the screen
+function getExpectedTextFromScreen() {
+  var needToTypeElement = document.getElementById('NeedToType');
+  return needToTypeElement.innerText;
+}
+
+console.log(getExpectedTextFromScreen())

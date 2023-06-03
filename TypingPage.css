@@ -203,6 +203,10 @@ a{
   justify-content: center;
 }
 
+.incorrect{
+  color: red;
+}
+
 .timer{
   font-size: 40px;
   font-family: SF pro;
