@@ -152,3 +152,42 @@ function getExpectedTextFromScreen() {
 }
 
 console.log(getExpectedTextFromScreen())
+
+
+var startTimestamp;
+var wordCount = 0;
+
+// Event listener for input event on the input element
+inputElement.addEventListener('input', function(event) {
+  var typedText = inputElement.value.trim(); // Get the current typed text
+
+  if (typedText === '') {
+    // Reset the word count and start timestamp
+    wordCount = 0;
+    startTimestamp = undefined;
+  } else {
+    // Start the timer if it hasn't started yet
+    if (!startTimestamp) {
+      startTimestamp = Date.now();
+    }
+
+    // Count the number of words typed
+    var wordArray = typedText.split(/\s+/);
+    wordCount = wordArray.length;
+  }
+
+  // Calculate the elapsed time in minutes
+  var elapsedTime = (Date.now() - startTimestamp) / 1000 / 60;
+
+  // Calculate the words per minute (WPM)
+  var wpm = Math.round(wordCount / elapsedTime);
+
+  // Update the WPM display
+  updateWPM(wpm);
+});
+
+// Function to update the WPM display
+function updateWPM(wpm) {
+  var wpmElement = document.getElementById('wpmValue');
+  wpmElement.textContent = wpm;
+}

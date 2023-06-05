@@ -201,6 +201,13 @@ a{
 .info-section{
   display: flex;
   justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.wpm-tracker{
+  font-family: SF pro;
+  font-size: 35px;
 }
 
 .incorrect{
@@ -208,7 +215,7 @@ a{
 }
 
 .timer{
-  font-size: 40px;
+  font-size: 35px;
   font-family: SF pro;
 }
 
