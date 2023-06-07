@@ -153,9 +153,10 @@ function getExpectedTextFromScreen() {
 
 console.log(getExpectedTextFromScreen())
 
-
+/*
 var startTimestamp;
 var wordCount = 0;
+
 
 // Event listener for input event on the input element
 inputElement.addEventListener('input', function(event) {
@@ -190,4 +191,74 @@ inputElement.addEventListener('input', function(event) {
 function updateWPM(wpm) {
   var wpmElement = document.getElementById('wpmValue');
   wpmElement.textContent = wpm;
+}
+*/
+var inputElement = document.getElementById('inputBox');
+var startTimestamp;
+var wordCount = 0;
+var mistakeCount = 0;
+var expectedText = getExpectedTextFromScreen().trim(); // Retrieve the expected text from the screen
+
+// Event listener for input event on the input element
+inputElement.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    var typedText = inputElement.value.trim(); // Get the current typed text
+
+    // Start the timer if it hasn't started yet
+    if (!startTimestamp) {
+      startTimestamp = Date.now();
+    }
+
+    // Reset the mistake count
+    mistakeCount = 0;
+
+    // Count the number of words typed
+    var wordArray = typedText.split(/\s+/);
+
+    // Increment the word count
+    wordCount += wordArray.length;
+
+    // Track mistakes
+    var typedWords = typedText.split(/\s+/);
+    var expectedWords = expectedText.split(/\s+/);
+
+    for (var i = 0; i < typedWords.length; i++) {
+      if (typedWords[i] !== expectedWords[i]) {
+        mistakeCount++;
+      }
+    }
+
+    // Calculate the elapsed time in minutes
+    var elapsedTime = (Date.now() - startTimestamp) / 1000 / 60;
+
+    // Calculate the words per minute (WPM)
+    var wpm = Math.round(wordCount / elapsedTime);
+
+    // Update the WPM display
+    updateWPM(wpm);
+
+    // Update the mistake count display
+    updateMistakeCount(mistakeCount);
+
+    // Clear the input field
+    inputElement.value = '';
+  }
+});
+
+// Function to retrieve the expected text from the screen
+function getExpectedTextFromScreen() {
+  var needToTypeElement = document.getElementById('NeedToType');
+  return needToTypeElement.innerText;
+}
+
+// Function to update the WPM display
+function updateWPM(wpm) {
+  var wpmElement = document.getElementById('wpmValue');
+  wpmElement.textContent = wpm;
+}
+
+// Function to update the mistake count display
+function updateMistakeCount(count) {
+  var mistakeCountElement = document.getElementById('mistakeCount');
+  mistakeCountElement.textContent = count;
 }
