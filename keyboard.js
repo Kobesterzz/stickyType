@@ -262,3 +262,48 @@ function updateMistakeCount(count) {
   var mistakeCountElement = document.getElementById('mistakeCount');
   mistakeCountElement.textContent = count;
 }
+
+
+// Function to show the result modal
+function showResultModal(wpm, mistakeCount) {
+  // Update the modal content with the data
+  var modalWPMElement = document.getElementById('modalWPM');
+  modalWPMElement.textContent = wpm;
+
+  var modalMistakeCountElement = document.getElementById('modalMistakeCount');
+  modalMistakeCountElement.textContent = mistakeCount;
+
+  // Get the modal element
+  var modal = document.getElementById('resultModal');
+
+  // Show the modal
+  modal.style.display = 'block';
+
+  // Get the close button element
+  var closeButton = document.getElementsByClassName('close')[0];
+
+  // Close the modal when the close button is clicked
+  closeButton.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // Close the modal when clicking outside the modal content
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+}
+
+// Event listener for keydown event on the input element
+inputElement.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    // Rest of your existing code...
+
+    // Show the result modal
+    showResultModal(wpm, mistakeCount);
+
+    // Clear the input field
+    inputElement.value = '';
+  }
+});
