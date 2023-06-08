@@ -1,3 +1,4 @@
+
 // Add event listener to all keys
 document.querySelectorAll('.key').forEach(key => {
     document.addEventListener('keydown', function(event) {
@@ -153,10 +154,55 @@ function getExpectedTextFromScreen() {
 
 console.log(getExpectedTextFromScreen())
 
-/*
+
+// Function to show the result modal
+function showResultModal(wpm, mistakeCount) {
+  // Update the modal content with the data
+  var modalWPMElement = document.getElementById('modalWPM');
+  modalWPMElement.textContent = wpm;
+
+  var modalMistakeCountElement = document.getElementById('modalMistakeCount');
+  modalMistakeCountElement.textContent = mistakeCount;
+
+  // Get the modal element
+  var modal = document.getElementById('resultModal');
+
+  // Show the modal
+  modal.style.display = 'block';
+
+  // Get the close button element
+  var closeButton = document.getElementsByClassName('close')[0];
+
+  // Close the modal when the close button is clicked
+  closeButton.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // Close the modal when clicking outside the modal content
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+}
+
+// Function to update the WPM display
+function updateWPM(wpm) {
+  var wpmElement = document.getElementById('wpmValue');
+  wpmElement.textContent = wpm;
+}
+
+// Function to update the mistake count display
+function updateMistakeCount(count) {
+  var mistakeCountElement = document.getElementById('mistakeCount');
+  mistakeCountElement.textContent = count;
+}
+
+var inputElement = document.getElementById('inputBox');
 var startTimestamp;
 var wordCount = 0;
-
+var mistakeCount = 0;
+var expectedText = getExpectedTextFromScreen().trim(); // Retrieve the expected text from the screen
 
 // Event listener for input event on the input element
 inputElement.addEventListener('input', function(event) {
@@ -187,19 +233,7 @@ inputElement.addEventListener('input', function(event) {
   updateWPM(wpm);
 });
 
-// Function to update the WPM display
-function updateWPM(wpm) {
-  var wpmElement = document.getElementById('wpmValue');
-  wpmElement.textContent = wpm;
-}
-*/
-var inputElement = document.getElementById('inputBox');
-var startTimestamp;
-var wordCount = 0;
-var mistakeCount = 0;
-var expectedText = getExpectedTextFromScreen().trim(); // Retrieve the expected text from the screen
-
-// Event listener for input event on the input element
+// Event listener for keydown event on the input element
 inputElement.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     var typedText = inputElement.value.trim(); // Get the current typed text
@@ -240,6 +274,9 @@ inputElement.addEventListener('keydown', function(event) {
     // Update the mistake count display
     updateMistakeCount(mistakeCount);
 
+    // Show the result modal
+    showResultModal(wpm, mistakeCount);
+
     // Clear the input field
     inputElement.value = '';
   }
@@ -251,59 +288,7 @@ function getExpectedTextFromScreen() {
   return needToTypeElement.innerText;
 }
 
-// Function to update the WPM display
-function updateWPM(wpm) {
-  var wpmElement = document.getElementById('wpmValue');
-  wpmElement.textContent = wpm;
-}
-
-// Function to update the mistake count display
-function updateMistakeCount(count) {
-  var mistakeCountElement = document.getElementById('mistakeCount');
-  mistakeCountElement.textContent = count;
-}
-
-
-// Function to show the result modal
-function showResultModal(wpm, mistakeCount) {
-  // Update the modal content with the data
-  var modalWPMElement = document.getElementById('modalWPM');
-  modalWPMElement.textContent = wpm;
-
-  var modalMistakeCountElement = document.getElementById('modalMistakeCount');
-  modalMistakeCountElement.textContent = mistakeCount;
-
-  // Get the modal element
-  var modal = document.getElementById('resultModal');
-
-  // Show the modal
-  modal.style.display = 'block';
-
-  // Get the close button element
-  var closeButton = document.getElementsByClassName('close')[0];
-
-  // Close the modal when the close button is clicked
-  closeButton.onclick = function() {
-    modal.style.display = 'none';
-  };
-
-  // Close the modal when clicking outside the modal content
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
-}
-
-// Event listener for keydown event on the input element
-inputElement.addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    // Rest of your existing code...
-
-    // Show the result modal
-    showResultModal(wpm, mistakeCount);
-
-    // Clear the input field
-    inputElement.value = '';
-  }
+// Set focus on the input box on page load
+window.addEventListener('load', function() {
+  inputElement.focus();
 });
